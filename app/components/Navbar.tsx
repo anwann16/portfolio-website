@@ -26,7 +26,7 @@ const Navbar = () => {
   ];
 
   return (
-    <div className="hidden lg:flex justify-center gap-5 my-10 lg:my-0 lg:gap-10 lg:flex-col lg:w-32">
+    <div className="bg-amber-500 hidden lg:flex justify-center gap-5 my-10 lg:my-0 lg:gap-7 lg:flex-col lg:w-32">
       {navBarList.map((item) => (
         <Link
           className={`text-base md:text-lg cursor-pointer ease-in-out duration-200 hover:font-bold ${

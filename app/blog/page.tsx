@@ -1,5 +1,5 @@
 const BlogPage = () => {
-  return <div className="w-full bg-red-500">BlogPage</div>;
+  return <div className="w-full">BlogPage</div>;
 };
 
 export default BlogPage;

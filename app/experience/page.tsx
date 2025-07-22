@@ -1,7 +1,7 @@
 import React from "react";
 
 const ExperiencePage = () => {
-  return <div className="w-full bg-red-500">Exp</div>;
+  return <div className="w-full">Exp</div>;
 };
 
 export default ExperiencePage;

@@ -1,6 +1,5 @@
-
 const ProjectPage = () => {
-  return <div className="w-full bg-red-500">Projects</div>;
+  return <div className="w-full">Projects</div>;
 };
 
 export default ProjectPage;

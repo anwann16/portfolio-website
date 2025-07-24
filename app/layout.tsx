@@ -1,20 +1,13 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Saira } from "next/font/google";
 
 import { Providers } from "./providers";
-import Sidebar from "./components/Sidebar";
+import Sidebar from "../components/Sidebar";
 
 import "./globals.css";
-import Dock from "./components/MobileNavbar";
-import { items } from "./data/icons";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const saira = Saira({
+  variable: "--font-saira",
   subsets: ["latin"],
 });
 
@@ -30,19 +23,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
+      <body className={`${saira.variable} antialiased`}>
         <Providers>
           <main className="h-screen lg:flex">
             <Sidebar />
             <section className="w-full overflow-x-hidden">{children}</section>
-            <Dock
-              items={items}
-              panelHeight={65}
-              baseItemSize={40}
-              magnification={50}
-            />
           </main>
         </Providers>
       </body>

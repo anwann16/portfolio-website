@@ -11,10 +11,10 @@ const Navbar = () => {
       name: "About",
       href: "/",
     },
-    {
-      name: "Experience",
-      href: "/experience",
-    },
+    // {
+    //   name: "Experience",
+    //   href: "/experience",
+    // },
     {
       name: "Projects",
       href: "/projects",
@@ -26,10 +26,10 @@ const Navbar = () => {
   ];
 
   return (
-    <div className="bg-amber-500 hidden lg:flex justify-center gap-5 my-10 lg:my-0 lg:gap-7 lg:flex-col lg:w-32">
+    <ul className="hidden lg:flex justify-center gap-5 my-10 lg:my-0 lg:gap-7 lg:flex-col lg:w-32">
       {navBarList.map((item) => (
         <Link
-          className={`text-base md:text-lg cursor-pointer ease-in-out duration-200 hover:font-bold ${
+          className={`text-base md:text-lg cursor-pointer ease-in-out duration-200 hover:font-bold hover:text-[#00ade1] ${
             pathname === item.href && `font-bold`
           }`}
           key={item.name}
@@ -38,7 +38,7 @@ const Navbar = () => {
           {item.name}
         </Link>
       ))}
-    </div>
+    </ul>
   );
 };
 

@@ -3,7 +3,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 
-import Navbar from "@/app/components/Navbar";
+import Navbar from "@/components/Navbar";
 import { FaGithub, FaLinkedin, FaWhatsapp, FaEnvelope } from "react-icons/fa";
 
 const Sidebar = () => {
@@ -23,13 +23,13 @@ const Sidebar = () => {
   ];
 
   return (
-    <div className="lg:w-1/2 lg:h-screen lg:top-0 lg:left-0 lg:z-10 lg:static flex px-7 lg:">
-      <div className="flex flex-col lg:justify-between py-5 lg:py-10">
+    <div className="lg:w-2/3 lg:h-screen lg:top-0 lg:left-0 lg:z-10 lg:static flex px-7 lg:px-20 ">
+      <div className="flex flex-col lg:justify-between py-10 lg:py-16">
         <div className="">
-          <h2 className="text-3xl md:text-[34px] font-extrabold">
+          <h2 className="text-3xl md:text-[34px] font-extrabold font-saira">
             Andi Kurniawan
           </h2>
-          <h5 className="text-lg md:text-xl font-semibold my-3 lg:my-7">
+          <h5 className="text-lg md:text-xl font-semibold my-3 lg:my-3">
             Software Engineer
           </h5>
           <p className="text-sm md:text-base">

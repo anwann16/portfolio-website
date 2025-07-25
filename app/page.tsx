@@ -1,23 +1,11 @@
-import GradientText from "@/components/GradientText";
-import SectionTitle from "../components/SectionTitle";
+import SectionTitle from "@/components/SectionTitle";
+import PageContainer from "@/components/PageContainer";
 import DownloadButton from "@/components/DownloadButton";
 
 export default function Home() {
   return (
-    <div className="w-full px-10 py-5 md:py-15 overflow-hidden">
-      <div className="flex justify-center">
-        {/* <SectionTitle>Get to Know Me!</SectionTitle> */}
-        <SectionTitle>
-          <GradientText
-            colors={["#40ffaa", "#4079ff", "#40ffaa", "#4079ff", "#40ffaa"]}
-            animationSpeed={3}
-            showBorder={false}
-            className="custom-class"
-          >
-            Get to Know Me!
-          </GradientText>
-        </SectionTitle>
-      </div>
+    <PageContainer>
+      <SectionTitle>Get to Know Me!</SectionTitle>
       <div className="my-10 px- lg:px-10">
         <p>
           I'm a QA Automation specialist and Fullstack Software Engineer who’s
@@ -34,16 +22,10 @@ export default function Home() {
           background, experience, and skills. Hopefully, it gives you a better
           idea of what I can bring to the table!
         </p>
-        {/* <Button
-          variant="ghost"
-          className="border-b-red-300 border-2 text-center"
-        >
-          Ghost
-        </Button> */}
         <div className="flex justify-center mt-10">
           <DownloadButton />
         </div>
       </div>
-    </div>
+    </PageContainer>
   );
 }

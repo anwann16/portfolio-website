@@ -1,5 +1,12 @@
+import SectionTitle from "@/components/SectionTitle";
+import PageContainer from "@/components/PageContainer";
+
 const ProjectPage = () => {
-  return <div className="w-full">Projects</div>;
+  return (
+    <PageContainer>
+      <SectionTitle>My Projects</SectionTitle>
+    </PageContainer>
+  );
 };
 
 export default ProjectPage;

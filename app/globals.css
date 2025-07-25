@@ -1,7 +1,6 @@
 @import "tailwindcss";
 
 :root {
-  /* --background: #0d1117; */
   --background-chrome: -webkit-linear-gradient(
     to right,
     #24243e,

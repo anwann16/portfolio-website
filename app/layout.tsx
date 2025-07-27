@@ -1,9 +1,8 @@
+import type { Metadata } from "next";
 import { Saira } from "next/font/google";
 
 import { Providers } from "./providers";
-import Sidebar from "@/components/Sidebar";
-
-import type { Metadata } from "next";
+import Condition from "@/components/Condition";
 
 import "./globals.css";
 
@@ -27,8 +26,10 @@ export default function RootLayout({
       <body className={`${saira.variable} antialiased`}>
         <Providers>
           <main className="h-screen lg:flex">
-            <Sidebar />
-            <section className="w-full overflow-x-hidden">{children}</section>
+            <Condition />
+            <section className="w-full overflow-x-hidden lg:pr-[70px]">
+              {children}
+            </section>
           </main>
         </Providers>
       </body>

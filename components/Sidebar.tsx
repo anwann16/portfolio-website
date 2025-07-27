@@ -2,9 +2,9 @@
 
 import React from "react";
 import { motion } from "framer-motion";
+import { FaGithub, FaLinkedin, FaWhatsapp, FaEnvelope } from "react-icons/fa";
 
 import Navbar from "@/components/Navbar";
-import { FaGithub, FaLinkedin, FaWhatsapp, FaEnvelope } from "react-icons/fa";
 
 const Sidebar = () => {
   const iconList = [
@@ -23,8 +23,8 @@ const Sidebar = () => {
   ];
 
   return (
-    <div className="lg:w-2/3 lg:h-screen lg:top-0 lg:left-0 lg:z-10 lg:static flex px-7 lg:px-20 ">
-      <div className="flex flex-col lg:justify-between py-10 lg:py-16">
+    <div className="lg:w-2/3 lg:h-screen lg:top-0 lg:left-0 lg:z-10 lg:static flex px-7 lg:px-16">
+      <div className="flex flex-col lg:justify-between py-10 lg:py-16 lg:pl-[70px]">
         <div className="">
           <h2 className="text-3xl md:text-[34px] font-extrabold font-saira">
             Andi Kurniawan

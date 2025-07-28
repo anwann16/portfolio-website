@@ -5,6 +5,7 @@ import { Providers } from "./providers";
 import Condition from "@/components/Condition";
 
 import "./globals.css";
+import StickyNavTabs from "@/components/MobileNavbar";
 
 const saira = Saira({
   variable: "--font-saira",
@@ -30,6 +31,7 @@ export default function RootLayout({
             <section className="w-full overflow-x-hidden lg:pr-[70px]">
               {children}
             </section>
+            <StickyNavTabs />
           </main>
         </Providers>
       </body>

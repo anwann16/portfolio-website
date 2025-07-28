@@ -1,5 +1,5 @@
 import { BlogCardProps } from "@/types/component";
-import { Calendar, Clock, User, BookOpen } from "lucide-react";
+import { Calendar, User, BookOpen } from "lucide-react";
 
 const BlogCard: React.FC<BlogCardProps> = ({ post, variant = "default" }) => {
   const handleMouseEnter = (e: React.MouseEvent<HTMLDivElement>) => {
@@ -80,10 +80,6 @@ const BlogCard: React.FC<BlogCardProps> = ({ post, variant = "default" }) => {
               <div className="flex items-center gap-2">
                 <Calendar className="w-4 h-4" />
                 <span>{post.publishDate}</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <Clock className="w-4 h-4" />
-                <span>{post.readTime}</span>
               </div>
             </div>
 
@@ -219,10 +215,6 @@ const BlogCard: React.FC<BlogCardProps> = ({ post, variant = "default" }) => {
         <div className="flex items-center gap-1">
           <Calendar className="w-3 h-3" />
           <span>{post.publishDate}</span>
-        </div>
-        <div className="flex items-center gap-1">
-          <Clock className="w-3 h-3" />
-          <span>{post.readTime}</span>
         </div>
       </div>
     </div>

@@ -81,32 +81,6 @@ const BlogList: React.FC = () => {
       image: "💡",
       trending: false,
     },
-    // {
-    //   id: 5,
-    //   title: "Minimalist Design Principles for Modern Web Interfaces",
-    //   excerpt:
-    //     "Master the art of creating clean, functional, and beautiful user interfaces with minimalist design approaches.",
-    //   author: "Emma Wilson",
-    //   date: "2025-07-18",
-    //   category: "Design",
-    //   readTime: "10 min read",
-    //   views: 1120,
-    //   image: "✨",
-    //   trending: false,
-    // },
-    // {
-    //   id: 6,
-    //   title: "Machine Learning in Production: Best Practices and Pitfalls",
-    //   excerpt:
-    //     "Navigate the challenges of deploying ML models in production environments with proven strategies.",
-    //   author: "James Liu",
-    //   date: "2025-07-16",
-    //   category: "AI & ML",
-    //   readTime: "14 min read",
-    //   views: 890,
-    //   image: "🤖",
-    //   trending: true,
-    // },
   ];
 
   useEffect(() => {
@@ -199,7 +173,7 @@ const BlogList: React.FC = () => {
         </div>
       </div>
 
-      <div className="mt-14 px-7 py-2 w-32 bg-white/10 backdrop-blur-md border border-white/20 rounded-md hover:scale-105 cursor-pointer transition-all duration-300">
+      <div className="text-center mt-14 px-5 py-2 w-32 bg-white/10 backdrop-blur-md border border-white/20 rounded-md hover:scale-105 cursor-pointer transition-all duration-300">
         <Link href="/posts" className="">
           See More
         </Link>

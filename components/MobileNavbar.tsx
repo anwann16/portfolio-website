@@ -1,209 +1,116 @@
 "use client";
 
-import {
-  motion,
-  MotionValue,
-  useMotionValue,
-  useSpring,
-  useTransform,
-  type SpringOptions,
-  AnimatePresence,
-} from "framer-motion";
-import React, {
-  Children,
-  cloneElement,
-  useEffect,
-  useMemo,
-  useRef,
-  useState,
-} from "react";
+import React, { useState, useEffect } from "react";
+import { Home, User, Settings, Search, Bell, Mail } from "lucide-react";
+import { FaUser, FaBlogger } from "react-icons/fa";
+import { BiTask } from "react-icons/bi";
 
-export type DockItemData = {
+import { usePathname } from "next/navigation";
+import Link from "next/link";
+
+interface Tab {
+  id: string;
+  label: string;
   icon: React.ReactNode;
-  label: React.ReactNode;
-  onClick: () => void;
-  className?: string;
-};
-
-export type DockProps = {
-  items: DockItemData[];
-  className?: string;
-  distance?: number;
-  panelHeight?: number;
-  baseItemSize?: number;
-  dockHeight?: number;
-  magnification?: number;
-  spring?: SpringOptions;
-};
-
-type DockItemProps = {
-  className?: string;
-  children: React.ReactNode;
-  onClick?: () => void;
-  mouseX: MotionValue;
-  spring: SpringOptions;
-  distance: number;
-  baseItemSize: number;
-  magnification: number;
-};
-
-function DockItem({
-  children,
-  className = "",
-  onClick,
-  mouseX,
-  spring,
-  distance,
-  magnification,
-  baseItemSize,
-}: DockItemProps) {
-  const ref = useRef<HTMLDivElement>(null);
-  const isHovered = useMotionValue(0);
-
-  const mouseDistance = useTransform(mouseX, (val) => {
-    const rect = ref.current?.getBoundingClientRect() ?? {
-      x: 0,
-      width: baseItemSize,
-    };
-    return val - rect.x - baseItemSize / 2;
-  });
-
-  const targetSize = useTransform(
-    mouseDistance,
-    [-distance, 0, distance],
-    [baseItemSize, magnification, baseItemSize]
-  );
-  const size = useSpring(targetSize, spring);
-
-  return (
-    <motion.div
-      ref={ref}
-      style={{
-        width: size,
-        height: size,
-      }}
-      onHoverStart={() => isHovered.set(1)}
-      onHoverEnd={() => isHovered.set(0)}
-      onFocus={() => isHovered.set(1)}
-      onBlur={() => isHovered.set(0)}
-      onClick={onClick}
-      className={`relative inline-flex items-center justify-center rounded-full bg-[#060010] border-neutral-700 border-2 shadow-md ${className}`}
-      tabIndex={0}
-      role="button"
-      aria-haspopup="true"
-    >
-      {Children.map(children, (child) =>
-        React.isValidElement<{ isHovered: MotionValue<number> }>(child)
-          ? cloneElement(child, { isHovered })
-          : child
-      )}
-    </motion.div>
-  );
+  href: string;
 }
 
-type DockLabelProps = {
-  className?: string;
-  children: React.ReactNode;
-};
+const StickyNavTabs: React.FC = () => {
+  const pathName = usePathname();
+  const [activeTab, setActiveTab] = useState<string>("/");
+  const [isVisible, setIsVisible] = useState<boolean>(true);
+  const [lastScrollY, setLastScrollY] = useState<number>(0);
 
-function DockLabel({ children, className = "", ...rest }: DockLabelProps) {
-  const { isHovered } = rest as { isHovered: MotionValue<number> };
-  const [isVisible, setIsVisible] = useState(false);
+  const tabs: Tab[] = [
+    {
+      id: "about",
+      label: "About",
+      icon: <FaUser size={20} />,
+      href: "/",
+    },
+    {
+      id: "projects",
+      label: "Projects",
+      icon: <BiTask size={20} />,
+      href: "/projects",
+    },
+    {
+      id: "profile",
+      label: "Blog",
+      icon: <FaBlogger size={20} />,
+      href: "/blog",
+    },
+  ];
 
   useEffect(() => {
-    const unsubscribe = isHovered.on("change", (latest) => {
-      setIsVisible(latest === 1);
-    });
-    return () => unsubscribe();
-  }, [isHovered]);
+    const controlNavbar = () => {
+      const currentScrollY = window.scrollY;
+
+      if (currentScrollY > lastScrollY && currentScrollY > 100) {
+        setIsVisible(false);
+      } else {
+        setIsVisible(true);
+      }
+
+      setLastScrollY(currentScrollY);
+    };
+
+    window.addEventListener("scroll", controlNavbar);
+    return () => window.removeEventListener("scroll", controlNavbar);
+  }, [lastScrollY]);
+
+  const isActiveTab = (href: string) => {
+    return pathName === href;
+  };
+
+  const gradientStyle = {
+    background: "linear-gradient(to right, #24243e, #302b63, #0f0c29)",
+  };
 
   return (
-    <AnimatePresence>
-      {isVisible && (
-        <motion.div
-          initial={{ opacity: 0, y: 0 }}
-          animate={{ opacity: 1, y: -10 }}
-          exit={{ opacity: 0, y: 0 }}
-          transition={{ duration: 0.2 }}
-          className={`${className} absolute -top-6 left-1/2 w-fit whitespace-pre rounded-md border border-neutral-700 bg-[#060010] px-2 py-0.5 text-xs text-white`}
-          role="tooltip"
-          style={{ x: "-50%" }}
-        >
-          {children}
-        </motion.div>
-      )}
-    </AnimatePresence>
+    // <div className="min-h-screen">
+    <nav
+      className={`lg:hidden bg-background fixed bottom-0 left-0 right-0 bg-opacity-10 backdrop-blur-lg border-t border-[#302b63] border-opacity-20 shadow-lg transition-transform duration-300 z-50 ${
+        isVisible ? "translate-y-0" : "translate-y-full"
+      }`}
+      // style={gradientStyle}
+    >
+      <div className="max-w-md mx-auto px-4">
+        <div className="flex justify-between items-center py-2">
+          {tabs.map((tab) => (
+            <Link
+              href={tab.href}
+              key={tab.id}
+              // onClick={() => setActiveTab(tab.id)}
+              className={`flex flex-col items-center justify-center p-3 rounded-lg transition-all duration-200 min-w-[60px] ${
+                pathName === tab.href
+                  ? "text-white bg-[#302b63] bg-opacity-20 scale-105 shadow-lg"
+                  : "text-gray-300 hover:text-white hover:bg-[#302b63] hover:bg-opacity-10"
+              }`}
+            >
+              <div
+                className={`transition-transform duration-200 ${
+                  activeTab === tab.href ? "scale-110" : ""
+                }`}
+              >
+                {tab.icon}
+              </div>
+              <span
+                className={`text-xs mt-1 font-medium transition-all duration-200 ${
+                  activeTab === tab.href ? "opacity-100" : "opacity-70"
+                }`}
+              >
+                {tab.label}
+              </span>
+              {activeTab === tab.href && (
+                <div className="absolute -top-1 w-1 h-1 bg-[#302b63] rounded-full animate-pulse" />
+              )}
+            </Link>
+          ))}
+        </div>
+      </div>
+    </nav>
   );
-}
-
-type DockIconProps = {
-  className?: string;
-  children: React.ReactNode;
 };
 
-function DockIcon({ children, className = "" }: DockIconProps) {
-  return (
-    <div className={`flex items-center justify-center ${className}`}>
-      {children}
-    </div>
-  );
-}
-
-export default function Dock({
-  items,
-  className = "",
-  spring = { mass: 0.1, stiffness: 150, damping: 12 },
-  magnification = 70,
-  distance = 200,
-  panelHeight = 64,
-  dockHeight = 256,
-  baseItemSize = 50,
-}: DockProps) {
-  const mouseX = useMotionValue(Infinity);
-  const isHovered = useMotionValue(0);
-
-  const maxHeight = useMemo(
-    () => Math.max(dockHeight, magnification + magnification / 2 + 4),
-    [magnification]
-  );
-  const heightRow = useTransform(isHovered, [0, 1], [panelHeight, maxHeight]);
-  const height = useSpring(heightRow, spring);
-
-  return (
-    <motion.div
-      style={{ height, scrollbarWidth: "none" }}
-      className="mx-2 flex lg:hidden max-w-full items-center fixed bottom-0 left-0 right-0 z-50"
-    >
-      <motion.div
-        onMouseMove={({ pageX }) => {
-          isHovered.set(1);
-          mouseX.set(pageX);
-        }}
-        onMouseLeave={() => {
-          isHovered.set(0);
-          mouseX.set(Infinity);
-        }}
-        className={`${className} absolute bottom-2 left-1/2 transform -translate-x-1/2 flex items-end w-fit gap-4 rounded-2xl border-neutral-700 border-2 pb-2 px-4 cursor-pointer`}
-        style={{ height: panelHeight }}
-        role="toolbar"
-        aria-label="Application dock"
-      >
-        {items.map((item, index) => (
-          <DockItem
-            key={index}
-            onClick={item.onClick}
-            className={item.className}
-            mouseX={mouseX}
-            spring={spring}
-            distance={distance}
-            magnification={magnification}
-            baseItemSize={baseItemSize}
-          >
-            <DockIcon>{item.icon}</DockIcon>
-            <DockLabel>{item.label}</DockLabel>
-          </DockItem>
-        ))}
-      </motion.div>
-    </motion.div>
-  );
-}
+export default StickyNavTabs;

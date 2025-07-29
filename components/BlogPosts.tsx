@@ -33,7 +33,7 @@ const BlogPosts: React.FC = () => {
   const featuredPost = filteredPosts[0];
 
   return (
-    <div className="min-h-screen p-8">
+    <div className="min-h-screen w-screen p-8">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="text-center mb-12">

@@ -2,11 +2,12 @@
 
 import React from "react";
 import { motion } from "framer-motion";
+import { usePathname } from "next/navigation";
 import { FaGithub, FaLinkedin, FaWhatsapp, FaEnvelope } from "react-icons/fa";
 
 import Navbar from "@/components/Navbar";
 
-const Sidebar = () => {
+const SidebarComponent = () => {
   const iconList = [
     {
       icon: <FaGithub size={30} />,
@@ -56,6 +57,12 @@ const Sidebar = () => {
       </div>
     </div>
   );
+};
+
+const Sidebar = () => {
+  const pathName = usePathname();
+
+  return <>{pathName !== "/posts" && <SidebarComponent />}</>;
 };
 
 export default Sidebar;

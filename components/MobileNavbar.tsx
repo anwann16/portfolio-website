@@ -1,12 +1,10 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
-import { Home, User, Settings, Search, Bell, Mail } from "lucide-react";
-import { FaUser, FaBlogger } from "react-icons/fa";
-import { BiTask } from "react-icons/bi";
-
-import { usePathname } from "next/navigation";
 import Link from "next/link";
+import { BiTask } from "react-icons/bi";
+import { usePathname } from "next/navigation";
+import { FaUser, FaBlogger } from "react-icons/fa";
+import React, { useState, useEffect } from "react";
 
 interface Tab {
   id: string;
@@ -15,7 +13,7 @@ interface Tab {
   href: string;
 }
 
-const StickyNavTabs: React.FC = () => {
+const MobileNavbar: React.FC = () => {
   const pathName = usePathname();
   const [activeTab, setActiveTab] = useState<string>("/");
   const [isVisible, setIsVisible] = useState<boolean>(true);
@@ -58,14 +56,6 @@ const StickyNavTabs: React.FC = () => {
     window.addEventListener("scroll", controlNavbar);
     return () => window.removeEventListener("scroll", controlNavbar);
   }, [lastScrollY]);
-
-  const isActiveTab = (href: string) => {
-    return pathName === href;
-  };
-
-  const gradientStyle = {
-    background: "linear-gradient(to right, #24243e, #302b63, #0f0c29)",
-  };
 
   return (
     // <div className="min-h-screen">
@@ -113,4 +103,4 @@ const StickyNavTabs: React.FC = () => {
   );
 };
 
-export default StickyNavTabs;
+export default MobileNavbar;

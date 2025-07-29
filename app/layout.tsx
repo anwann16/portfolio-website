@@ -2,10 +2,10 @@ import type { Metadata } from "next";
 import { Saira } from "next/font/google";
 
 import { Providers } from "./providers";
-import Condition from "@/components/Condition";
+import Sidebar from "@/components/Sidebar";
+import MobileNavbar from "@/components/MobileNavbar";
 
 import "./globals.css";
-import StickyNavTabs from "@/components/MobileNavbar";
 
 const saira = Saira({
   variable: "--font-saira",
@@ -27,11 +27,11 @@ export default function RootLayout({
       <body className={`${saira.variable} antialiased`}>
         <Providers>
           <main className="h-screen lg:flex">
-            <Condition />
+            <Sidebar />
             <section className="w-full overflow-x-hidden lg:pr-[70px]">
               {children}
             </section>
-            <StickyNavTabs />
+            <MobileNavbar />
           </main>
         </Providers>
       </body>

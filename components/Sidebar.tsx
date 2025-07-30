@@ -61,8 +61,10 @@ const SidebarComponent = () => {
 
 const Sidebar = () => {
   const pathName = usePathname();
+  const hideSidebar = !pathName.startsWith("/posts");
+  console.log(hideSidebar);
 
-  return <>{pathName !== "/posts" && <SidebarComponent />}</>;
+  return <>{hideSidebar && <SidebarComponent />}</>;
 };
 
 export default Sidebar;

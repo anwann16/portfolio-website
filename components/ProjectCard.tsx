@@ -102,7 +102,8 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
         <div className="absolute inset-0 bg-black/20 group-hover:bg-black/30 transition-all duration-300"></div>
         <div className="relative z-10">
           <img
-            src="/images.jpg"
+            // src="/images.jpg"
+            src={project.image_url}
             alt={project.title}
             className="w-full h-auto object-cover"
           />

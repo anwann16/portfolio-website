@@ -14,7 +14,7 @@ interface PostPageProps {
   };
 }
 
-const PostDetail = ({ params }: PostPageProps) => {
+const PostDetail = async ({ params }: PostPageProps) => {
   const { slug } = params;
   const blogPost = {
     title: "Complete Guide to Modern Web Development with React and TypeScript",

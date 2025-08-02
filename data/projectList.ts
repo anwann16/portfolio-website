@@ -6,7 +6,7 @@ export const projects: Project[] = [
     description:
       "Platform e-commerce modern dengan fitur lengkap seperti payment gateway, inventory management, dan admin dashboard yang responsive.",
     technologies: ["Next.js", "TypeScript", "Prisma", "Stripe"],
-    image: "https://picsum.photos/900/200",
+    image_url: "https://picsum.photos/900/200",
     demoUrl: "https://example.com/ecommerce",
     codeUrl: "https://github.com/username/ecommerce",
   },
@@ -15,7 +15,7 @@ export const projects: Project[] = [
     description:
       "Aplikasi mobile banking dengan keamanan tinggi, biometric authentication, dan real-time transaction monitoring.",
     technologies: ["React Native", "Node.js", "MongoDB", "JWT"],
-    image: "https://picsum.photos/900/200",
+    image_url: "https://picsum.photos/900/200",
     demoUrl: "https://example.com/banking",
     codeUrl: "https://github.com/username/banking",
   },
@@ -24,7 +24,7 @@ export const projects: Project[] = [
     description:
       "Dashboard keamanan siber untuk monitoring threats, vulnerability scanning, dan incident response management.",
     technologies: ["Vue.js", "Python", "PostgreSQL", "Docker"],
-    image: "https://picsum.photos/900/200",
+    image_url: "https://picsum.photos/900/200",
     demoUrl: "https://example.com/cybersecurity",
     codeUrl: "https://github.com/username/cybersecurity",
   },
@@ -33,7 +33,7 @@ export const projects: Project[] = [
     description:
       "AI-powered chatbot dengan natural language processing dan machine learning untuk customer service automation.",
     technologies: ["Python", "TensorFlow", "FastAPI", "Redis"],
-    image: "https://picsum.photos/900/200",
+    image_url: "https://picsum.photos/900/200",
     demoUrl: "https://example.com/chatbot",
     codeUrl: "https://github.com/username/chatbot",
   },
@@ -42,7 +42,7 @@ export const projects: Project[] = [
     description:
       "Platform analytics real-time dengan visualisasi data interaktif dan business intelligence reporting.",
     technologies: ["React", "D3.js", "GraphQL", "ClickHouse"],
-    image: "https://picsum.photos/900/200",
+    image_url: "https://picsum.photos/900/200",
     demoUrl: "https://example.com/analytics",
     codeUrl: "https://github.com/username/analytics",
   },
@@ -51,7 +51,7 @@ export const projects: Project[] = [
     description:
       "Comprehensive design system dengan komponen reusable dan guidelines untuk konsistensi UI/UX.",
     technologies: ["Storybook", "Figma", "CSS-in-JS", "TypeScript"],
-    image: "https://picsum.photos/900/200",
+    image_url: "https://picsum.photos/900/200",
     demoUrl: "https://example.com/designsystem",
     codeUrl: "https://github.com/username/designsystem",
   },

@@ -9,12 +9,10 @@ import {
 } from "lucide-react";
 
 interface PostPageProps {
-  params: {
-    slug: string;
-  };
+  params: Promise<{ slug: string }>;
 }
 
-const PostDetail = async ({ params }: { params: { slug: string } }) => {
+const PostDetail = async ({ params }: PostPageProps) => {
   const { slug } = params;
   const blogPost = {
     title: "Complete Guide to Modern Web Development with React and TypeScript",

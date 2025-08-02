@@ -1,13 +1,12 @@
 import { Project } from "@/types/component";
-// import { projects } from "@/data/projectList";
 import ProjectCard from "@/components/ProjectCard";
 import SectionTitle from "@/components/SectionTitle";
 import PageContainer from "@/components/PageContainer";
 
 const ProjectPage = async () => {
-  const res = await fetch("http://localhost:3000/api/projects");
+  const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/projects`);
   const projects = await res.json();
-  // console.log(projec);
+
   return (
     <PageContainer>
       <SectionTitle>My Projects</SectionTitle>

@@ -61,8 +61,8 @@ const SidebarComponent = () => {
 
 const Sidebar = () => {
   const pathName = usePathname();
-  const hideSidebar = !pathName.startsWith("/posts");
-  console.log(hideSidebar);
+  const hideSidebar =
+    !pathName.startsWith("/posts") && !pathName.startsWith("/dashboard");
 
   return <>{hideSidebar && <SidebarComponent />}</>;
 };

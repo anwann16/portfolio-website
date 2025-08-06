@@ -1,13 +1,11 @@
 import { Project } from "@/types/component";
+import { getProjects } from "@/lib/getProjects";
 import ProjectCard from "@/components/ProjectCard";
 import SectionTitle from "@/components/SectionTitle";
 import PageContainer from "@/components/PageContainer";
-import { getProjects } from "@/lib/getProjects";
 
 const ProjectPage = async () => {
   const projects = await getProjects();
-
-  console.log(projects);
 
   return (
     <PageContainer>

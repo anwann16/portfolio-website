@@ -1,3 +1,4 @@
+import Tabs from "@/components/(dashboard)/Tabs";
 import Navbar from "@/components/(dashboard)/Navbar";
 import StatsCard from "@/components/(dashboard)/StatsCard";
 
@@ -10,7 +11,10 @@ export default function DashboardLayout({
     <section className="w-screen min-h-screen bg-gray-50">
       <Navbar />
       <StatsCard />
-      <main className="bg-white rounded-lg shadow p-5">{children}</main>
+      <main className="bg-white rounded-lg shadow mx-5">
+        <Tabs />
+        {children}
+      </main>
     </section>
   );
 }

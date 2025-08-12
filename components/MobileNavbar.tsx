@@ -13,7 +13,7 @@ interface Tab {
   href: string;
 }
 
-const MobileNavbar: React.FC = () => {
+const MobileNavbarComponent: React.FC = () => {
   const pathName = usePathname();
   const [activeTab, setActiveTab] = useState<string>("/");
   const [isVisible, setIsVisible] = useState<boolean>(true);
@@ -101,6 +101,13 @@ const MobileNavbar: React.FC = () => {
       </div>
     </nav>
   );
+};
+
+const MobileNavbar = () => {
+  const pathName = usePathname();
+  const hideNavbar = !pathName.startsWith("/dashboard");
+
+  return <>{hideNavbar && <MobileNavbarComponent />}</>;
 };
 
 export default MobileNavbar;

@@ -10,7 +10,6 @@ export const blogPosts: BlogPost[] = [
     publishDate: "15 Mar 2024",
     readTime: "8 min read",
     category: "Web Development",
-    tags: ["nextjs", "react", "typescript", "web"],
     image: "blog1.jpg",
   },
   {
@@ -22,7 +21,6 @@ export const blogPosts: BlogPost[] = [
     publishDate: "12 Mar 2024",
     readTime: "6 min read",
     category: "Programming",
-    tags: ["typescript", "javascript", "programming"],
     image: "blog2.jpg",
   },
   {
@@ -34,7 +32,6 @@ export const blogPosts: BlogPost[] = [
     publishDate: "10 Mar 2024",
     readTime: "5 min read",
     category: "UI/UX Design",
-    tags: ["design", "glassmorphism", "ui", "ux"],
     image: "blog3.jpg",
   },
   {
@@ -46,7 +43,6 @@ export const blogPosts: BlogPost[] = [
     publishDate: "8 Mar 2024",
     readTime: "7 min read",
     category: "Web Development",
-    tags: ["react", "performance", "optimization"],
     image: "blog4.jpg",
   },
   {
@@ -58,7 +54,6 @@ export const blogPosts: BlogPost[] = [
     publishDate: "5 Mar 2024",
     readTime: "10 min read",
     category: "Data Science",
-    tags: ["python", "ml", "datascience", "ai"],
     image: "blog5.jpg",
   },
   {
@@ -70,7 +65,6 @@ export const blogPosts: BlogPost[] = [
     publishDate: "2 Mar 2024",
     readTime: "9 min read",
     category: "Security",
-    tags: ["security", "cybersecurity", "development"],
     image: "blog6.jpg",
   },
 ];
